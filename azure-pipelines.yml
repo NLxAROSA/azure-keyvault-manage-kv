@@ -15,7 +15,7 @@ steps:
     cfVersion: '6.51.0'
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'FE-lrosenquist(1)(606bd6d1-8d80-4450-aecf-5ba421626688)'
+    azureSubscription: 'FE-lrosenquist(2)(606bd6d1-8d80-4450-aecf-5ba421626688)'
     scriptType: 'bash'
     scriptLocation: 'scriptPath'
     scriptPath: 'setup_keyvault.sh'
