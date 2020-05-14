@@ -15,7 +15,7 @@ steps:
     cfVersion: '6.51.0'
 - task: Bash@3
   inputs:
-    filePath: 'setup-keyvault.sh'
+    filePath: 'setup_keyvault.sh'
 - task: Bash@3
   inputs:
     filePath: 'cf-update-config-server.sh'
