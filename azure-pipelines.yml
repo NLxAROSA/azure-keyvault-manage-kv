@@ -13,9 +13,12 @@ steps:
 - task: CloudFoundryCLIInstall@0
   inputs:
     cfVersion: '6.51.0'
-- task: Bash@3
+- task: AzureCLI@2
   inputs:
-    filePath: 'setup_keyvault.sh'
+    azureSubscription: 'FE-lrosenquist(1)(606bd6d1-8d80-4450-aecf-5ba421626688)'
+    scriptType: 'bash'
+    scriptLocation: 'scriptPath'
+    scriptPath: 'setup_keyvault.sh'
 - task: Bash@3
   inputs:
     filePath: 'cf-update-config-server.sh'
