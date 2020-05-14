@@ -1,0 +1,40 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'FE-lrosenquist(606bd6d1-8d80-4450-aecf-5ba421626688)'
+    scriptType: 'bash'
+    scriptLocation: 'scriptPath'
+    scriptPath: 'setup-keyvault.sh'
+- task: CloudFoundryCLIInstall@0
+  inputs:
+    cfVersion: '6.43.0'
+- task: CloudFoundryCLI@0
+  inputs:
+    cfCommand: 'add-plugin-repo CF-Community https://plugins.cloudfoundry.org'
+- task: CloudFoundryCLI@0
+  inputs:
+    cfCommand: 'install-plugin -r CF-Community "spring-cloud-services"'
+- task: CloudFoundryCLI@0
+  inputs:
+    skipSSLValidation: true
+    org: 'lars'
+    space: 'lars'
+    cfCommand: 'config-server-add-credhub-secret my-config-server signing-demo/cloud/master/myprop ''{"kid":"$KID","clientId":"$CLIENT_ID","clientSecret":"$CLIENT_SECRET"}'''
