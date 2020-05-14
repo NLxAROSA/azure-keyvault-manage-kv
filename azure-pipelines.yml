@@ -17,6 +17,12 @@ steps:
   inputs:
     azureSubscription: 'FE-lrosenquist(2)(606bd6d1-8d80-4450-aecf-5ba421626688)'
     scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az ad sp create-for-rbac -n http://yourSigningDemoKeyvaultSP3 --sdk-auth'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'FE-lrosenquist(2)(606bd6d1-8d80-4450-aecf-5ba421626688)'
+    scriptType: 'bash'
     scriptLocation: 'scriptPath'
     scriptPath: 'setup_keyvault.sh'
     addSpnToEnvironment: true
