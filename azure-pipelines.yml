@@ -17,6 +17,11 @@ steps:
   inputs:
     cfEndpoint: 'My Test environment'
     skipSSLValidation: true
+    cfCommand: 'help -a'
+- task: CloudFoundryCLI@0
+  inputs:
+    cfEndpoint: 'My Test environment'
+    skipSSLValidation: true
     cfCommand: 'cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org'
 - task: CloudFoundryCLI@0
   inputs:
