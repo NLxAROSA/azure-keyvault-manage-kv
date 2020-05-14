@@ -12,7 +12,7 @@ pool:
 steps:
 - task: CloudFoundryCLIInstall@0
   inputs:
-    cfVersion: '6.43.0'
+    cfVersion: '6.51.0'
 - task: CloudFoundryCLI@0
   inputs:
     cfEndpoint: 'My Test environment'
