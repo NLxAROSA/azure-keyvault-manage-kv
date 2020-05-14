@@ -34,6 +34,7 @@ steps:
     cfCommand: 'install-plugin -r CF-Community "spring-cloud-services"'
 - task: CloudFoundryCLI@0
   inputs:
+    cfEndpoint: 'My Test environment'
     skipSSLValidation: true
     org: 'lars'
     space: 'lars'
