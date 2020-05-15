@@ -19,14 +19,13 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'scriptPath'
     scriptPath: 'create-key.sh'
-    addSpnToEnvironment: true
+    addSpnToEnvironment: true 
 - task: Bash@3
   inputs:
     filePath: 'update-config-server.sh'
   env:
     CLIENT_ID: $(CLIENT_ID)
     CLIENT_SECRET: $(CLIENT_SECRET)
-    KID: $(KID)
     CF_PASSWORD: $(CF_PASSWORD)
     CF_USER: $(CF_USER)
     CF_URL: $(CF_URL)
