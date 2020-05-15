@@ -23,3 +23,8 @@ steps:
 - task: Bash@3
   inputs:
     filePath: 'cf-update-config-server.sh'
+  env:
+    CLIENT_ID: $(CLIENT_ID)
+    CLIENT_SECRET: $(CLIENT_SECRET)
+    KID: $(KID)
+    CF_PASSWORD: $(CF_PASSWORD)
