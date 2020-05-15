@@ -4,8 +4,6 @@ echo "Creating resource group..."
 az group create -n $RESOURCE_GROUP -l $RESOURCE_GROUP_REGION
 echo "Creating Keyvault..."
 az keyvault create -n $KEYVAULT_NAME -g $RESOURCE_GROUP
-echo "Setting policy..."
-az keyvault set-policy -n $KEYVAULT_NAME --spn $SP_NAME --key-permissions sign verify
 echo "Creating key..."
 az keyvault key create -n $KEY_NAME --vault-name $KEYVAULT_NAME --kty rsa
 echo "Exporting environment variables"
