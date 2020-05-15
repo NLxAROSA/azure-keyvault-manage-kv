@@ -20,6 +20,13 @@ steps:
     scriptLocation: 'scriptPath'
     scriptPath: 'setup-keyvault.sh'
     addSpnToEnvironment: true
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'FE-lrosenquist(606bd6d1-8d80-4450-aecf-5ba421626688)'
+    scriptType: 'bash'
+    scriptLocation: 'scriptPath'
+    scriptPath: 'create-sp-and-policy.sh'
+    addSpnToEnvironment: true
 - task: Bash@3
   inputs:
     filePath: 'cf-update-config-server.sh'
