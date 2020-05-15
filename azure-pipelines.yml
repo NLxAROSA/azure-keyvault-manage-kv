@@ -18,20 +18,15 @@ steps:
     azureSubscription: 'FE-lrosenquist(606bd6d1-8d80-4450-aecf-5ba421626688)'
     scriptType: 'bash'
     scriptLocation: 'scriptPath'
-    scriptPath: 'setup-keyvault.sh'
-    addSpnToEnvironment: true
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'FE-lrosenquist(606bd6d1-8d80-4450-aecf-5ba421626688)'
-    scriptType: 'bash'
-    scriptLocation: 'scriptPath'
-    scriptPath: 'create-sp-and-policy.sh'
+    scriptPath: 'create-key.sh'
     addSpnToEnvironment: true
 - task: Bash@3
   inputs:
-    filePath: 'cf-update-config-server.sh'
+    filePath: 'update-config-server.sh'
   env:
     CLIENT_ID: $(CLIENT_ID)
     CLIENT_SECRET: $(CLIENT_SECRET)
     KID: $(KID)
     CF_PASSWORD: $(CF_PASSWORD)
+    CF_USER: $(CF_USER)
+    CF_URL: $(CF_URL)
